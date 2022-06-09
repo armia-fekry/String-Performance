@@ -10,6 +10,7 @@ public class Program
         string input = Console.ReadLine();
         //for more usabilty 
         Console.Write("Decide ShiftBy: ");
+        var dd = input.ToCharArray().Length;
         int ShiftBy;
         if (!int.TryParse(Console.ReadLine(), out ShiftBy))
             Console.WriteLine("Wrong Input: Enter Numbers Only..");
@@ -27,9 +28,9 @@ public class Program
     /// <returns></returns>
     public static string Shift(in string input, int shiftBy)
         => String.Create(input.Length, input.ToCharArray(), (c, b) => {
-            for (int i = 0; i < c.Length; i++)
+            for (int i = 0; i < b.Length; i++)
             {
-                if (b[i] < 65 || b[i] > 90)
+                if (b[i] < 65 || b[i] > 90|| b.Length==0)
                 {
                     Console.Write("Wrong Input , Enter [A-Z] ....");
                     return;
